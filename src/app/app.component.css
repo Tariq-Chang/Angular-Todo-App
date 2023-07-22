@@ -1,0 +1,33 @@
+.app-container {
+    background-color: #13134F;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+}
+
+.app-container>h2 {
+    text-align: center;
+    font-size: 48px;
+    text-shadow: 2px 3px 5px #000;
+    margin-top: 5px;
+}
+
+.app-todos {
+    background: #1D1D5D;
+    height: fit-content;
+    padding: 20px 0;
+    margin: 10px 50px;
+}
+
+@media(max-width:768px) {
+    .app-todos {
+        margin: 10px 30px;
+    }
+}
+
+@media(max-width:576px) {
+    .app-todos {
+        margin: 10px 15px;
+    }
+}

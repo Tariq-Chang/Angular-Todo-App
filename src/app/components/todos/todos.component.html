@@ -1,0 +1,40 @@
+<div class="todos-container">
+    <div class="todos-info">
+        <div class="info">
+            <button class="update-info-btn info-btn"></button>
+            <p>Update</p>
+        </div>
+        <div class="info">
+            <button class="complete-info-btn info-btn"></button>
+            <p>Completed</p>
+        </div>
+        <div class="info">
+            <button class="delete-info-btn info-btn"></button>
+            <p>Delete</p>
+        </div>
+    </div>
+    <form (submit)="addTodo()" class="form-container">
+        <input maxlength="40" type="text" name="todo" id="todo" placeholder='Enter todo...' [(ngModel)]="todoText">
+        <button type="submit" [disabled]="todoText ? false : true">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </form>
+    <div class=' todo-container' *ngFor="let todo of todos; let id=index">
+        <p class="todo-content" [ngClass]="todo.isComplete ? 'completed': ''">{{todo.content}}</p>
+        <div class="todo-btns">
+            <button class='btn btn-update' (click)="updateTodo(id, todo)"></button>
+            <button class='btn btn-complete' (click)="completeTodo(id)"></button>
+            <button class='btn btn-delete' (click)="deleteTodo(id)"></button>
+        </div>
+    </div>
+    <div class="modal-container">
+        <div class="modal" *ngIf="isModalOpen">
+            <h4>Update Todo</h4>
+            <button class='cancel-btn' (click)="closeModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <input type="text" name="update" [(ngModel)]="updateInputText">
+            <button class='modal-update-btn' (click)="updateModalTodo()">update todo</button>
+        </div>
+    </div>
+</div>
